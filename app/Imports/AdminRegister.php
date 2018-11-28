@@ -8,11 +8,9 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use App\Http\Controllers\Auth\StudentRegisterController;
 use Illuminate\Support\Facades\Hash;
 
-class StudentRegister implements ToCollection
+class AdminRegister implements ToCollection
 {
-
-    protected $role = 1;
-
+    protected $role = 0;
     /**
     * @param array $row
     *
@@ -20,8 +18,7 @@ class StudentRegister implements ToCollection
     */
     public function collection(Collection $rows)
     {
-        date_default_timezone_set("Asia/Ho_Chi_Minh");
-        $datas = $rows;
+         $datas = $rows;
         $array = array();
         $count = 0;
         foreach ($datas as $data) {
@@ -37,13 +34,15 @@ class StudentRegister implements ToCollection
             }
             if( $arr != null) {
                 //$arr[0] = (int)$arr[0];
+                //$a = trim($arr[1],$arr[1][0]);
                 $arr[1] = preg_replace('/[^A-Za-z0-9\-\_]/', '', $arr[1]);
                 $arr[2] = preg_replace('/[^A-Za-z0-9\-\_]/', '', $arr[2]);
                 if($arr[4][0] == "=") {
                     $arr[4] = $arr[1] . "@vnu.edu.vn";
                 }
 
-                //$arr[3] = substr($arr[3], 0, 2);
+                //$arr[3] = substr($arr[3], 1,1);
+
                 $array[] = $arr;
             }
             $count++;
@@ -55,11 +54,10 @@ class StudentRegister implements ToCollection
                     'name' => $data[3],
                     'email' => $data[4],
                     'password' => Hash::make($data[2]),
-                    'class' => $data[5],
                     'role' => $this->role,
                 ]);
             } catch( \Exception $e ) {
-                dd($e);
+
             }
         }
         return $array;

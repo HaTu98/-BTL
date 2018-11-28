@@ -37,7 +37,11 @@ class TeacherController extends Controller
 
     public function registerTeacher()
     {
-    	return view('Admin.lecturers.Teacher');
+    	$users = User::select('users.id','users.username', 'users.name', 'users.email', 'roles.name as role')
+        ->join('roles','users.role', '=', 'roles.id')
+        ->where('roles.name','giaovien')
+       	->Paginate(7);
+    	return view('Admin.lecturers.Teacher', compact('users'));
     }
 
     public function register(Request $request)
@@ -56,7 +60,7 @@ class TeacherController extends Controller
         if($request->hasFile('FILE')){
             //return Excel::import(new TeacherRegister, request()->file('FILE'));
             Excel::import(new TeacherRegister, request()->file('FILE'));
-            return redirect('/home')->with('success', 'All good!');
+            return redirect('/dashboard')->with('success', 'All good!');
         }
     }
 

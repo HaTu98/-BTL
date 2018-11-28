@@ -1,19 +1,19 @@
 @extends('admin.adminLayout.adminLayout')
 
 @section('content_header')
-    <h1>Danh sách sinh viên</h1>
+    <h1>Danh sách quản trị viên </h1>
 @endsection
 
 @section('content')
 
     <div style="width: 30%; float: left">
-        <button type="button" class="btn btn-vimeo" data-toggle="modal" data-target="#insertSingleStudent">Thêm sinh viên</button>
+        <button type="button" class="btn btn-vimeo" data-toggle="modal" data-target="#insertSingleAdmin">Thêm admin</button>
     </div>
 
     <div style="width: 30%; float: left">
-        <button type="button" class="btn btn-vimeo" data-toggle="modal" data-target="#insertListStudent">Thêm danh sách sinh viên</button>
+        <button type="button" class="btn btn-vimeo" data-toggle="modal" data-target="#insertListAdmin">Thêm danh sách admin</button>
     </div>
-    
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -32,7 +32,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editSingleStudent">Sửa</button>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editSingleLecturer">Sửa</button>
                     <a class="btn btn-default remove" href="#">Xóa</a>
                 </td>
             </tr>
@@ -42,11 +42,9 @@
     <div class="clearfix">
         {{ $users->links() }}
     </div>
+    @include('admin/admins/InsertSingleAdminModal')
 
-    @include('admin/students/InsertSingleStudentModal')
+    @include('admin/admins/EditSingleAdminModal')
 
-    @include('admin/students/EditSingleStudentModal')
-
-    @include('admin.students.InsertListStudentModal')
-
+    @include('admin/admins/InsertListAdminModal')
 @endsection
