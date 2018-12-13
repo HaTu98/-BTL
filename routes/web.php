@@ -66,6 +66,27 @@ Route::get('/course', 'Admin\CourseController@course');
 Route::post('/add-course','Admin\CourseController@addCourse');
 
 
+
+Route::get('students',function(){
+    return view('user.userlayout.student.students');
+});
+Route::get('/user/userlayout/teacher/teacher',function(){
+    return view('user.userlayout.teacher.teacher');
+});
+Route::get('survey',function(){
+    return view('user.userlayout.student.survey.survey');
+=======
+
+Route::any('/survey-submit', function () {
+    return view('admin.surveys.submit');
+});
+
+// chức năng cho sinh giao viên và sinh viên
+
+Route::get('/user/student','User\StudentController@student');
+Route::get('/user/teacher','User\TeacherController@teacher');
+
+
 Route::get('students',function(){
     return view('user.userlayout.student.students');
 });
