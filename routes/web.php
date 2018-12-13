@@ -75,8 +75,7 @@ Route::get('/user/userlayout/teacher/teacher',function(){
 });
 Route::get('survey',function(){
     return view('user.userlayout.student.survey.survey');
-=======
-
+});
 Route::any('/survey-submit', function () {
     return view('admin.surveys.submit');
 });
