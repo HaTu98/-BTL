@@ -9,15 +9,18 @@
                         <hr class="style2">
                         <h6 class="mb-4">An objective view about the teaching quality of UET.</h6>
                         <br />
-                        <a class="btn btn-white">Sign in</a>
-                        <a class="btn btn-outline-white">Learn more</a>
+                        @guest
+                            <a href="{{ route('login') }}" class="btn login-content">Login</a>
+                        @else
+                        <a href="" class="btn login-content"><span class="nameuser">{{ Auth::user()->username }}</span></a>
+                        @endguest
+                        <a class="btn login-content">Learn more</a>
                     </div>
 
                     <!--Grid row-->
                 </div>
             </div>
 </section>
-
 <main>
         <section class="banner-bottom py-5">
             <div class="container py-md-3">

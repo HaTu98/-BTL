@@ -66,28 +66,12 @@ Route::get('/course', 'Admin\CourseController@course');
 Route::post('/add-course','Admin\CourseController@addCourse');
 
 
-
-
-Route::any('/survey-submit', function () {
-    return view('admin.surveys.submit');
+Route::get('students',function(){
+    return view('user.userlayout.student.students');
 });
-
-
-Route::get('/user/student/students',function(){
-    return view('user.student.students');
+Route::get('/user/userlayout/teacher/teacher',function(){
+    return view('user.userlayout.teacher.teacher');
 });
-Route::get('/user/elements/survey',function(){
-    return view('user.elements.survey');
-});
-Route::get('/welcome',function(){
-    return view('welcome');
-});
-Route::get('/porfile',function(){
-    return view('porfile');
-});
-Route::get('/user/teacher/teacher',function(){
-    return view('user.teacher.teacher');
-});
-Route::get('/user/elements/result',function(){
-    return view('user.elements.result');
+Route::get('survey',function(){
+    return view('user.userlayout.student.survey.survey');
 });

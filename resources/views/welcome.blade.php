@@ -27,11 +27,14 @@
 </head>
 <body>
     <!--header-->
-    @include("user.elements.header")
+    @include("user.userlayout.partial.header")
     <!--Main Layout-->
     @section('main')
-    @include("user.elements.content")
+    @include("layouts.content")
     <!--footer-->
-    @include("user.elements.footer")
+    @include("user.userlayout.partial.footer")
     @show
 </body>
+    <style>
+
+    </style>

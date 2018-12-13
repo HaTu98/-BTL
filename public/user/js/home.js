@@ -13,4 +13,11 @@ $(document).ready(function() {
             document.getElementById("list-survey").style.display = "none";
         }
     });
+    $("#class-survey-mobile").click(function() {
+        if (document.getElementById("list-survey-mobile").style.display == "none") {
+            document.getElementById("list-survey-mobile").style.display = "";
+        } else {
+            document.getElementById("list-survey-mobile").style.display = "none";
+        }
+    });
 });
