@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Course;
 use App\Criterion;
+use Illuminate\Support\Facades\DB;
+
 
 class SurveyController extends Controller
 {
@@ -20,13 +22,29 @@ class SurveyController extends Controller
     	return view('admin.surveys.survey',compact('courses'));
     }
 
-    public function surveyGenerate(){
+    public function generate() {
         $criteria = Criterion::all();
-        $courses = Course::where('status',0)->get();
-        foreach ($courses as $key => $value) {
-            $courses[$key]->code = str_replace(' ','_',$value->code);
+        return view('admin.surveys.generate', compact('criteria'));
+    }
+
+    public function surveyGenerate(){
+        $courses = DB::table('courses')->select( 'courses.id as id','courses.name as course_name', 'courses.code as code','users.name as user_name')
+            ->join('user_courses','courses.id', '=','user_courses.course_id')
+            ->join('users','user_courses.user_id', '=','users.id')
+            ->join('roles', 'users.role', '=', 'roles.id')
+            ->where('courses.status',0)
+            ->where('roles.name', '=', 'giaovien')->get();
+
+        $data = array();
+        foreach ($courses as $value) {
+            $record = array();
+            $record[] = $value->id;
+            $record[] = $value->course_name;
+            $record[] = $value->code;
+            $record[] = $value->user_name;
+            $data[] = $record;
         }
-		return view('admin.surveys.generate', compact('criteria','courses'));
+        return "{\"data\": ".json_encode($data)."}";
     }
 
     public function surveyEdit() {
@@ -34,11 +52,30 @@ class SurveyController extends Controller
     }
 
     public function surveyRegister(Request $request) {
+        $courses = $request->courses;
+        $start = date_create($request->start . ' 00:00:00');
+        $start = date_format($start,"Y-m-d H:i:s");
+        $finish = date_create($request->finish . ' 23:59:59');
+        $finish = date_format($finish,"Y-m-d H:i:s");
         $data = $request->all();
+        $criteria = array();
         foreach ($data as $key => $value) {
-           
+            if(substr($key, 0,6) == 'survey' ){
+                $criteria[] = substr($key, 6);
+            }
+
+        }
+        $criterion =  json_encode($criteria);
+        foreach($courses as $course) {
+            DB::table('courses')->where('id',$course)
+                ->update([
+                    'status' => 1,
+                    'criterion' => $criterion,
+                    'start' => $start,
+                    'finish' => $finish,
+                ]);
         }
 
-        dd($request->all());
+        return $this->generate();
     }
 }
