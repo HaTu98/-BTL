@@ -94,3 +94,4 @@ Route::get('/courses',function(){
 Route::get('/welcome', function () {
     return view('welcome');
 });
+

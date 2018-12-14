@@ -1,4 +1,6 @@
 
+@extends('user.student.students')
+<main>
 <div class="frame">
 <div class="survey-table p-5">
         <div class="">
@@ -107,7 +109,18 @@
                         </tr>
                     @endif
                     @endforeach
-                            
+                    </tbody>
+                    <thead>
+                        <tr>
+                        <th>5.Ý kiến bổ xung của sinh viên</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <form>
+                                <td><input type="" class="form-control" id="input-note"></td>
+                            </form>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -117,4 +130,4 @@
         <button class="btn btn-lg btn-success center-block">Nộp đánh giá</button>
     </div>
 </div>
-
+</main>

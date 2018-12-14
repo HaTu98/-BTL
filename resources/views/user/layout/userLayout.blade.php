@@ -33,7 +33,6 @@
     <!--Main Layout-->
     @section('main')
     @show
-    
     @section('js')
     <!--------------------------
     | Your Javascript Here |
