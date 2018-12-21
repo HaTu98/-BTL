@@ -10,7 +10,7 @@
                 <div class="list-survey">
                     <h3><b>Các tiêu chí đánh giá:</b> </h3>
                     <div class="about-equipments">
-                        <h5><b> 1. Cơ sở vật chất</b></h5>
+                        <h5> 1. Cơ sở vật chất</h5>
                         <ul>
                         @foreach($datas as $data)
                             @if($data['id'] <= 2 && $data['id'] >= 1)
@@ -20,7 +20,7 @@
                         </ul>
                     </div>
                     <div class="about-subject">
-                        <h5><b> 2. Môn học</b></h5>
+                        <h5> 2. Môn học</h5>
                         <ul>
                         @foreach($datas as $data)
                             @if($data['id'] <= 7 && $data['id'] >= 3)
@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="about-teachers">
-                        <h5><b> 3. Hoạt động dạy hoc của giảng viên</b></h5>
+                        <h5> 3. Hoạt động dạy hoc của giảng viên</h5>
                         <ul>
                         @foreach($datas as $data)
                             @if($data['id'] <= 15 && $data['id'] >= 8)
@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                     <div class="about-students">
-                        <h5><b> 4. Hoạt động học tập của sinh viên</b></h5>
+                        <h5> 4. Hoạt động học tập của sinh viên</h5>
                         <ul>
                         @foreach($datas as $data)
                             @if($data['id'] <= 19 && $data['id'] >= 16)
@@ -50,7 +50,7 @@
                         </ul>
                     </div>
                 </div>
-                <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button>
             </div>
 
         </div>
