@@ -23,6 +23,7 @@
         @endforeach
     </tbody>
 </table>
+
 <div class="clearfix">
     {{ $users->render() }}
 </div>
