@@ -43,22 +43,22 @@
     margin: 0;
 }
 
-.modal  .modal-dialog  .modal-content  #submitBtn {
+.modal  .modal-dialog  .modal-content  .submitBtn {
     margin-left: 25%;
     margin-top: 20px;
 }
 
-.modal  .modal-dialog  .modal-content  #closeBtn {
+.modal  .modal-dialog  .modal-content  .closeBtn {
     margin-left: 20%;
     margin-top: 20px;
 }
 
 @media only screen and (max-width: 600px) {
-    .modal  .modal-dialog  .modal-content  #submitBtn {
+    .modal  .modal-dialog  .modal-content  .submitBtn {
         margin-left: 15%;
     }
 
-    .modal  .modal-dialog  .modal-content  #closeBtn {
+    .modal  .modal-dialog  .modal-content  .closeBtn {
         margin-left: 10%;
     }
 }

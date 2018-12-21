@@ -17,11 +17,11 @@
 
     </div>
 
-    @include('admin/admins/InsertSingleAdminModal')
+    @include('admin.admins.InsertSingleAdminModal')
 
-    @include('admin/admins/EditSingleAdminModal')
+    @include('admin.admins.EditSingleAdminModal')
 
-    @include('admin/admins/InsertListAdminModal')
+    @include('admin.admins.InsertListAdminModal')
 
 @endsection
 @section('js')
