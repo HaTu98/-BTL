@@ -8,7 +8,7 @@
                     @csrf
                     <div class="form-group col-md-12">
                         <div class="input-group">
-                        <input type="file" name="FILE" id="FILE" required="true">
+                        <input type="file" name="FILE" id="FILE" required="true" accept=".xlsx, .xls, .csv">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary submitBtn">Submit</button>
