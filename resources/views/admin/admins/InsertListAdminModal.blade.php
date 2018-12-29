@@ -7,8 +7,9 @@
                 <form action="{{ url('admin-import') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group col-md-12">
+                        <input type="file" class="inputfile" name="FILE" id="FILE" required="true" style="" accept="">
                         <div class="input-group">
-                            <input type="file" name="FILE" id="FILE" required="true">
+                        <input type="file" name="FILE" id="FILE" required="true">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary submitBtn">Submit</button>
@@ -16,6 +17,9 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>
+<script>
+var p=$('input[type=file]')[0].files[0].name;
+$('p').append('p');
+</script>
